@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Clock - CodeWithNarendra</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="Clock">
+        <div class="Hour">
+            <div class="Hr" id="Hr"></div>
+        </div>
+        <div class="Mins">
+            <div class="Mns" id="Mns"></div>
+        </div>
+        <div class="Secs">
+            <div class="Scs" id="Scs"></div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        const deg = 6;
+        const Hr = document.querySelector('#Hr')
+        const Mns = document.querySelector('#Mns')
+        const Scs = document.querySelector('#Scs')
+
+        setInterval(() => {
+            let Day = new Date();
+            let Hh = Day.getHours() * 30;
+            let Mm = Day.getMinutes() * deg;
+            let Ss = Day.getSeconds() * deg;
+
+            Hr.style.transform = `rotateZ(${(Hh)+(Mm/12)}deg)`;
+            Mns.style.transform = `rotateZ(${Mm}deg)`;
+            Scs.style.transform = `rotateZ(${Ss}deg)`;
+        })
+    </script>
+</body>
+</html>
